@@ -25,7 +25,7 @@ function useCountdown(start: number) {
 function Room() {
   const s = useSession();
   const nav = useNavigate();
-  const q = questions[s.current];
+  const q = questions[s.current]!;
   const time = useCountdown(20 * 60 - s.current * 90);
   const [mode, setMode] = useState<"text" | "voice">("text");
   const [text, setText] = useState("");

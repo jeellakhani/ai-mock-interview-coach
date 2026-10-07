@@ -12,7 +12,7 @@ export const Route = createFileRoute("/report")({
   component: Report,
 });
 
-const fallback = [82, 88, 86, 80, 84].map((score, q) => ({ q, score, text: questions[q].sample, level: "Balanced" as const }));
+const fallback = [82, 88, 86, 80, 84].map((score, q) => ({ q, score, text: questions[q]!.sample, level: "Balanced" as const }));
 
 function Report() {
   const s = useSession();
@@ -89,7 +89,7 @@ function Report() {
         <h2 className="text-3xl font-semibold tracking-tight">Question by question</h2>
         <ol className="mt-8 border-l">
           {answers.map((a, i) => {
-            const q = questions[a.q];
+            const q = questions[a.q]!;
             const isOpen = open === i;
             return (
               <li key={a.q} className="relative pl-8">

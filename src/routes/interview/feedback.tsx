@@ -12,7 +12,7 @@ export const Route = createFileRoute("/interview/feedback")({
 function Feedback() {
   const s = useSession();
   const nav = useNavigate();
-  const q = questions[s.current];
+  const q = questions[s.current]!;
   const a = s.answers.find((x) => x.q === s.current);
   const score = a?.score ?? 82;
   const last = s.current + 1 >= TOTAL;

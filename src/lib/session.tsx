@@ -25,7 +25,7 @@ export const TOTAL = questions.length;
 
 function scoreAnswer(text: string, q: number, level: Level) {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
-  let s = questions[q].base;
+  let s = questions[q]!.base;
   s += Math.min(8, Math.floor(words / 9)) - 4;
   if (/\d/.test(text)) s += 3;
   if (words < 12) s -= 16;
