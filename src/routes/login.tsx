@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { CTA, Logo, pageMeta } from "@/components/aimc";
+import { Logo, pageMeta } from "@/components/aimc";
 import { candidate } from "@/lib/mock";
 
 export const Route = createFileRoute("/login")({
@@ -42,7 +42,6 @@ function Login() {
           <button type="submit" className="w-full rounded-lg bg-primary py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">Continue →</button>
           <button type="button" className="w-full rounded-lg border py-3 text-sm" title="Not available in the prototype">Continue with Google</button>
           <p className="text-center text-xs text-muted-foreground">Prototype: any credentials sign you in.</p>
-          <div className="hidden"><CTA to="/dashboard">x</CTA></div>
         </form>
       </div>
     </div>
