@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as InterviewsRouteImport } from './routes/interviews'
+import { Route as JobsRouteImport } from './routes/jobs'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as ResumeRouteImport } from './routes/resume'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as StartInterviewRouteImport } from './routes/start-interview'
+import { Route as InterviewIndexRouteImport } from './routes/interview/index'
+import { Route as InterviewCompletedRouteImport } from './routes/interview/completed'
+import { Route as InterviewFeedbackRouteImport } from './routes/interview/feedback'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewsRoute = InterviewsRouteImport.update({
+  id: '/interviews',
+  path: '/interviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResumeRoute = ResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartInterviewRoute = StartInterviewRouteImport.update({
+  id: '/start-interview',
+  path: '/start-interview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewIndexRoute = InterviewIndexRouteImport.update({
+  id: '/interview/',
+  path: '/interview/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewCompletedRoute = InterviewCompletedRouteImport.update({
+  id: '/interview/completed',
+  path: '/interview/completed',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewFeedbackRoute = InterviewFeedbackRouteImport.update({
+  id: '/interview/feedback',
+  path: '/interview/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/interviews': typeof InterviewsRoute
+  '/jobs': typeof JobsRoute
+  '/login': typeof LoginRoute
+  '/report': typeof ReportRoute
+  '/resume': typeof ResumeRoute
+  '/settings': typeof SettingsRoute
+  '/start-interview': typeof StartInterviewRoute
+  '/interview/completed': typeof InterviewCompletedRoute
+  '/interview/feedback': typeof InterviewFeedbackRoute
+  '/interview/': typeof InterviewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/interviews': typeof InterviewsRoute
+  '/jobs': typeof JobsRoute
+  '/login': typeof LoginRoute
+  '/report': typeof ReportRoute
+  '/resume': typeof ResumeRoute
+  '/settings': typeof SettingsRoute
+  '/start-interview': typeof StartInterviewRoute
+  '/interview/completed': typeof InterviewCompletedRoute
+  '/interview/feedback': typeof InterviewFeedbackRoute
+  '/interview': typeof InterviewIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/interviews': typeof InterviewsRoute
+  '/jobs': typeof JobsRoute
+  '/login': typeof LoginRoute
+  '/report': typeof ReportRoute
+  '/resume': typeof ResumeRoute
+  '/settings': typeof SettingsRoute
+  '/start-interview': typeof StartInterviewRoute
+  '/interview/completed': typeof InterviewCompletedRoute
+  '/interview/feedback': typeof InterviewFeedbackRoute
+  '/interview/': typeof InterviewIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/interviews'
+    | '/jobs'
+    | '/login'
+    | '/report'
+    | '/resume'
+    | '/settings'
+    | '/start-interview'
+    | '/interview/completed'
+    | '/interview/feedback'
+    | '/interview/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/interviews'
+    | '/jobs'
+    | '/login'
+    | '/report'
+    | '/resume'
+    | '/settings'
+    | '/start-interview'
+    | '/interview/completed'
+    | '/interview/feedback'
+    | '/interview'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/interviews'
+    | '/jobs'
+    | '/login'
+    | '/report'
+    | '/resume'
+    | '/settings'
+    | '/start-interview'
+    | '/interview/completed'
+    | '/interview/feedback'
+    | '/interview/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  InterviewsRoute: typeof InterviewsRoute
+  JobsRoute: typeof JobsRoute
+  LoginRoute: typeof LoginRoute
+  ReportRoute: typeof ReportRoute
+  ResumeRoute: typeof ResumeRoute
+  SettingsRoute: typeof SettingsRoute
+  StartInterviewRoute: typeof StartInterviewRoute
+  InterviewCompletedRoute: typeof InterviewCompletedRoute
+  InterviewFeedbackRoute: typeof InterviewFeedbackRoute
+  InterviewIndexRoute: typeof InterviewIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interviews': {
+      id: '/interviews'
+      path: '/interviews'
+      fullPath: '/interviews'
+      preLoaderRoute: typeof InterviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resume': {
+      id: '/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof ResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start-interview': {
+      id: '/start-interview'
+      path: '/start-interview'
+      fullPath: '/start-interview'
+      preLoaderRoute: typeof StartInterviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview/': {
+      id: '/interview/'
+      path: '/interview'
+      fullPath: '/interview/'
+      preLoaderRoute: typeof InterviewIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview/completed': {
+      id: '/interview/completed'
+      path: '/interview/completed'
+      fullPath: '/interview/completed'
+      preLoaderRoute: typeof InterviewCompletedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview/feedback': {
+      id: '/interview/feedback'
+      path: '/interview/feedback'
+      fullPath: '/interview/feedback'
+      preLoaderRoute: typeof InterviewFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  InterviewsRoute: InterviewsRoute,
+  JobsRoute: JobsRoute,
+  LoginRoute: LoginRoute,
+  ReportRoute: ReportRoute,
+  ResumeRoute: ResumeRoute,
+  SettingsRoute: SettingsRoute,
+  StartInterviewRoute: StartInterviewRoute,
+  InterviewCompletedRoute: InterviewCompletedRoute,
+  InterviewFeedbackRoute: InterviewFeedbackRoute,
+  InterviewIndexRoute: InterviewIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
